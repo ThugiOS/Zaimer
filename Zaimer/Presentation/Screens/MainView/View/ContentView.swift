@@ -19,8 +19,7 @@ struct ContentView: View {
                     VStack(alignment: .leading, spacing: 20) {
                         DebtCard()
                         DebtCard()
-                        DebtCard()
-                        DebtCard()
+
                     }
                 }
                 .padding(.top, 150)
