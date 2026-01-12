@@ -17,7 +17,7 @@ enum TabPage: Hashable, CaseIterable {
 
 struct MainTabView: View {
     
-    @State var selectedTab: TabPage = .main
+    @State var selectedTab: TabPage = .payList
     
     init() {
         UITabBar.appearance().isHidden = true // hide default tabbar
@@ -28,7 +28,7 @@ struct MainTabView: View {
             TabView(selection: $selectedTab) {
                 ContentView()
                     .tag(TabPage.main)
-                Text("second")
+                PaymentsView()
                     .tag(TabPage.payList)
             }
             HStack {
@@ -40,6 +40,7 @@ struct MainTabView: View {
                         isSelected: $selectedTab)
                 
                 Spacer()
+                Spacer()
             
                 TabItem(image: "map",
                         text: "pay",
@@ -47,10 +48,10 @@ struct MainTabView: View {
                         isSelected: $selectedTab)
                 
                 Spacer()
-            }
-            .frame(maxWidth: .infinity, maxHeight: 60)
-            .padding(.top, 15)
-            .background(.black).opacity(0.9)
+            } 
+            .frame(width: 200, height: 75, alignment: .center)
+            .background(.black).opacity(0.8)
+            .clipShape(.capsule)
         }
     }
 }
