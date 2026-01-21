@@ -28,8 +28,8 @@ struct DetailsView: View {
                     
                     VStack(alignment: .leading, spacing: 20) {
                         HStack(spacing: 20) {
-                            TagInfoView(text: "23e23")
-                            TagInfoView(text: "ddwd")
+                            TagInfoView(text: "2500BYN")
+                            TagInfoView(text: "$1250")
                         }
                         
                         Text("some text ome textome kds cks dkc skd c sdc jkds kc kjsd jksdjk jk sj cdjc kjs dcj sdjk cjk ds ckj sdc jsd kc ksjd ckj sd cjs dcj jsd c sdjc  text ome text ome text ome text")
@@ -70,16 +70,29 @@ struct DetailsView: View {
                     
                 }
             }
-            
-            Spacer()
-            
-            HStack {
+  
+            VStack(spacing: 20) {
                 Spacer()
                 
                 Button {
-                    
+                    print("Закрыть досрочно")
                 } label: {
-                    Text("Оплатить")
+                    Text("Закрыть досрочно")
+                        .font(.custom(MonoNovaFont.main.rawValue, size: 18))
+                        .foregroundStyle(.white)
+                }
+                .padding(.horizontal, 50)
+                .padding(.top, 12)
+                .padding(.bottom, 10)
+                .overlay {
+                    Capsule()
+                        .stroke(.mainRed,lineWidth: 5)
+                }
+                
+                Button {
+                    print("Удалить последний платеж")
+                } label: {
+                    Text("Удалить последний платеж")
                         .font(.custom(MonoNovaFont.main.rawValue, size: 18))
                         .foregroundStyle(.mainTiffany)
                 }
@@ -90,27 +103,7 @@ struct DetailsView: View {
                     Capsule()
                         .stroke(.mainTiffany,lineWidth: 5)
                 }
-                
-                Spacer()
-                
-                Button {
-                    
-                } label: {
-                    Text("dwed")
-                        .font(.custom(MonoNovaFont.main.rawValue, size: 18))
-                        .foregroundStyle(.mainTiffany)
-                }
-                .padding(.horizontal, 50)
-                .padding(.top, 12)
-                .padding(.bottom, 10)
-                .overlay {
-                    Capsule()
-                        .stroke(.mainTiffany,lineWidth: 5)
-                }
-                
-                Spacer()
             }
-            
         }
         .padding(.horizontal, 20)
         .background(.mainBlack)
@@ -123,8 +116,8 @@ struct DetailsView: View {
     DetailsView()
 }
 
-extension DetailsView {
 
+extension DetailsView {
     var header: some View {
         HStack {
             Button {
@@ -178,7 +171,6 @@ struct TagInfoView: View {
 
 struct RadioButton: View {
     @Binding var isOn: Bool
-    
     var body: some View {
         Circle()
             .fill(isOn ? Color.mainTiffany : Color.gray)
