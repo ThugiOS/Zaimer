@@ -17,7 +17,7 @@ enum TabPage: Hashable, CaseIterable {
 
 struct MainTabView: View {
     
-    @State var selectedTab: TabPage = .payList
+    @State var selectedTab: TabPage = .main
     
     init() {
         UITabBar.appearance().isHidden = true // hide default tabbar
