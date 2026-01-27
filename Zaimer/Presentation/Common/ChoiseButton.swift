@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ChoiseButton: View {
     var text: String
-    var frameColor: Color
-    var textColor: Color
+//    var frameColor: Color
+//    var textColor: Color
     var textSize: Int
     var isSelected: Bool
     
