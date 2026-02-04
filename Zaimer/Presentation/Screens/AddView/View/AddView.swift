@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddView: View {
+    @State var nameText: String = " "
+    
     var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 30) {
@@ -32,6 +34,7 @@ struct AddView: View {
                         //
                     } label: {
                         Text("21")
+                            .underline()
                             .font(.custom(MonoNovaFont.main.rawValue, size: 20))
                             .foregroundStyle(.white)
                     }
@@ -43,6 +46,10 @@ struct AddView: View {
                 }
             }
             
+            VStack(alignment: .leading, spacing: 12) {
+                FiieldView(placeholder: "Название платежа", text: $nameText)
+            }
+            
             Spacer()
             CardButton()
         }
@@ -52,6 +59,26 @@ struct AddView: View {
 }
 
 #Preview {
-    
     AddView()
+}
+
+struct FiieldView: View {
+    var placeholder: String
+    @Binding var text: String
+    var isTextField: Bool = true
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(placeholder)
+                .font(.custom(MonoNovaFont.main.rawValue, size: 18))
+                .foregroundStyle(.mainRed)
+            if isTextField {
+                TextField.init("", text: $text)
+            } else {
+                TextEditor(text: $text)
+            }
+            
+        }
+        
+    }
 }
