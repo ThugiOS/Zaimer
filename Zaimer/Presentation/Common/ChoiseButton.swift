@@ -13,10 +13,11 @@ struct ChoiseButton: View {
 //    var textColor: Color
     var textSize: Int
     var isSelected: Bool
+    var action: (() -> Void)?
     
     var body: some View {
         Button {
-            //
+            action?()
         } label: {
             Text(text)
                 .font(.custom(MonoNovaFont.main.rawValue, size: CGFloat(textSize)))
