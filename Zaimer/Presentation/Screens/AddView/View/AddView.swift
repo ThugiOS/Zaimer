@@ -43,17 +43,22 @@ struct AddView: View {
                     }
                 }
                 //date
-                HStack(spacing: 7) {
+                HStack(spacing: 4) {
                     switch payType {
                     case .month:
-                        Button {
-                            isShowCalendar.toggle()
-                        } label: {
-                            Text("21")
-                                .underline()
-                                .font(.custom(MonoNovaFont.main.rawValue, size: 20))
-                                .foregroundStyle(.mainTiffany)
-                        }
+                        DatePicker("", selection: $date, displayedComponents: [.date])
+                            .frame(width: 26)
+                            .clipped()
+                            .overlay {
+                                Text("20")
+                                    .underline()
+                                    .font(.custom(MonoNovaFont.main.rawValue, size: 18))
+                                    .foregroundStyle(.mainTiffany)
+                                    .frame(width: 28, height: 30)
+                                    .padding(.vertical, 4)
+                                    .background(.mainBlack)
+                                    .allowsHitTesting(true)
+                            }
                         
                         Text("числа")
                             .font(.custom(MonoNovaFont.main.rawValue, size: 18))
@@ -63,14 +68,27 @@ struct AddView: View {
                         Text("До")
                             .font(.custom(MonoNovaFont.main.rawValue, size: 18))
                             .foregroundStyle(.mainDirtyFFFF)
-                        Button {
-                            isShowCalendar.toggle()
-                        } label: {
-                            Text("21 апреля 2026")
-                                .underline()
-                                .font(.custom(MonoNovaFont.main.rawValue, size: 20))
-                                .foregroundStyle(.mainTiffany)
-                        }
+                        DatePicker("", selection: $date, displayedComponents: [.date])
+                            .frame(width: 150)
+                            .clipped()
+                            .overlay {
+                                Text("21 апреля 2026")
+                                    .underline()
+                                    .font(.custom(MonoNovaFont.main.rawValue, size: 18))
+                                    .foregroundStyle(.mainTiffany)
+                                    .frame(width: 150, height: 30)
+                                    .padding(.vertical, 4)
+                                    .background(.mainBlack)
+                                    .allowsHitTesting(true)
+                            }
+//                        Button {
+//                            isShowCalendar.toggle()
+//                        } label: {
+//                            Text("21 апреля 2026")
+//                                .underline()
+//                                .font(.custom(MonoNovaFont.main.rawValue, size: 20))
+//                                .foregroundStyle(.mainTiffany)
+//                        }
                     }
                 }
             }
